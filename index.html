@@ -18,13 +18,12 @@
 
 <body>
   <canvas id="canvas1"></canvas>
-  <canvas id="canvas2"></canvas>
+  <!-- <canvas id="canvas2"></canvas> -->
 
   <script>
     var canvas = document.getElementById('canvas1');
     var context = canvas.getContext('2d');
 
-    // Set frame
     canvas.style = 'background: black';
 
     function setFrame() {
@@ -36,7 +35,6 @@
       setFrame();
     });
 
-    // Render
     function renderFillText(string, x, y) {
       context.fillStyle = 'rgba(255, 255, 255, 0.5)';
       context.fillText(string, x, y);
@@ -70,7 +68,7 @@
       };
     }, 35);
   </script>
-  <script src="./canvas2.js"></script>
+  <!-- <script src="./canvas2.js"></script> -->
 </body>
 
 </html>
