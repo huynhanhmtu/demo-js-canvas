@@ -45,7 +45,7 @@
     };
     var string = "0 1 ";
     setInterval(function () {
-      context.fillStyle = "rgba(0,0,0,0.06)";
+      context.fillStyle = "rgba(0,0,0,0.07)";
       context.fillRect(0, 0, W, H);
 
       context.font = "normal 12px Arial";
@@ -59,7 +59,7 @@
           drops[i] = 0;
         }
       }
-    }, 20);
+    }, 35);
 
     function renderFillText(string, x, y) {
       context.fillStyle = "rgba(255, 255, 255, 0.5)";
@@ -67,7 +67,7 @@
       setTimeout(function () {
         context.fillStyle = "#00cc33";
         context.fillText(string, x, y);
-      }, 20)
+      }, 70)
     }
   </script>
 </body>
