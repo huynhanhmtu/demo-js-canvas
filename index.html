@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>JS - Matrix Rain Effect</title>
 </head>
 
@@ -17,32 +17,47 @@
 </style>
 
 <body>
+  <canvas id="canvas1"></canvas>
+  <canvas id="canvas2"></canvas>
+
   <script>
-    // Create canvas
-    var canvas = document.createElement('canvas');
-    document.body.appendChild(canvas);
+    var canvas = document.getElementById('canvas1');
     var context = canvas.getContext('2d');
 
     // Set frame
-    var W = window.innerWidth;
-    var H = window.innerHeight;
-    canvas.width = W;
-    canvas.height = H;
-    canvas.style = "background:black";
+    canvas.style = 'background: black';
+
+    function setFrame() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    setFrame();
+    window.addEventListener('resize', function () {
+      setFrame();
+    });
 
     // Render
+    function renderFillText(string, x, y) {
+      context.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      context.fillText(string, x, y);
+      setTimeout(function () {
+        context.fillStyle = '#00cc33';
+        context.fillText(string, x, y);
+      }, 70);
+    };
+
     var space = 15;
-    var columns = Math.floor(W / space);
+    var columns = Math.floor(canvas.width / space);
     var drops = [];
     for (var i = 0; i <= columns; i++) {
       drops.push(Math.floor(Math.random() * 100));
     };
-    var string = "0 1 ";
+    var string = '0 1 ';
     setInterval(function () {
-      context.fillStyle = "rgba(0,0,0,0.07)";
-      context.fillRect(0, 0, W, H);
+      context.fillStyle = 'rgba(0,0,0,0.07)';
+      context.fillRect(0, 0, canvas.width, canvas.height);
 
-      context.font = "normal 12px Arial";
+      context.font = 'normal 12px Arial';
       for (var i = 0; i <= columns; i++) {
         var index = Math.floor(Math.random() * string.length);
         var x = i * space;
@@ -54,16 +69,8 @@
         };
       };
     }, 35);
-
-    function renderFillText(string, x, y) {
-      context.fillStyle = "rgba(255, 255, 255, 0.5)";
-      context.fillText(string, x, y);
-      setTimeout(function () {
-        context.fillStyle = "#00cc33";
-        context.fillText(string, x, y);
-      }, 70);
-    };
   </script>
+  <script src="./canvas2.js"></script>
 </body>
 
 </html>
