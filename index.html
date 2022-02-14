@@ -17,13 +17,15 @@
 </style>
 
 <body>
-  <canvas id="myCanvas" style="background: #000000"></canvas>
+  <!-- <canvas id="myCanvas" style="background: black"></canvas> -->
 
   <script>
-    var canvas = document.getElementById('myCanvas');
+    // Create canvas
+    var canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
     var context = canvas.getContext('2d');
 
-    // Set canvas frame
+    // Set frame
     var W = window.innerWidth
       || document.documentElement.clientWidth //For IE v.5,6,7,8
       || document.body.clientWidth; //For IE v.5,6,7,8
@@ -32,6 +34,7 @@
       || document.body.clientHeight; //For IE v.5,6,7,8
     canvas.width = W;
     canvas.height = H;
+    canvas.style = "background:black";
 
     // Render
     var space = 15;
@@ -39,13 +42,13 @@
     var drops = [];
     for (var i = 0; i <= columns; i++) {
       drops.push(Math.floor(Math.random() * 100));
-    }
+    };
     var string = "0 1 ";
     setInterval(function () {
       context.fillStyle = "rgba(0,0,0,0.06)";
       context.fillRect(0, 0, W, H);
 
-      context.font = "normal 10px Arial";
+      context.font = "normal 11px Arial";
       for (var i = 0; i <= columns; i++) {
         var index = Math.floor(Math.random() * string.length);
         var x = i * space;
@@ -59,7 +62,7 @@
     }, 20);
 
     function renderFillText(string, x, y) {
-      context.fillStyle = "#ffffffa0";
+      context.fillStyle = "rgba(255, 255, 255, 0.5)";
       context.fillText(string, x, y);
       setTimeout(function () {
         context.fillStyle = "#00cc33";
