@@ -17,8 +17,6 @@
 </style>
 
 <body>
-  <!-- <canvas id="myCanvas" style="background: black"></canvas> -->
-
   <script>
     // Create canvas
     var canvas = document.createElement('canvas');
@@ -26,12 +24,8 @@
     var context = canvas.getContext('2d');
 
     // Set frame
-    var W = window.innerWidth
-      || document.documentElement.clientWidth //For IE v.5,6,7,8
-      || document.body.clientWidth; //For IE v.5,6,7,8
-    var H = window.innerHeight
-      || document.documentElement.clientHeight //For IE v.5,6,7,8
-      || document.body.clientHeight; //For IE v.5,6,7,8
+    var W = window.innerWidth;
+    var H = window.innerHeight;
     canvas.width = W;
     canvas.height = H;
     canvas.style = "background:black";
@@ -53,12 +47,12 @@
         var index = Math.floor(Math.random() * string.length);
         var x = i * space;
         var y = drops[i] * space;
-        renderFillText(string[index], x, y)
+        renderFillText(string[index], x, y);
         drops[i]++;
         if (y >= canvas.height && Math.random() > 0.99) {
           drops[i] = 0;
-        }
-      }
+        };
+      };
     }, 35);
 
     function renderFillText(string, x, y) {
@@ -67,8 +61,8 @@
       setTimeout(function () {
         context.fillStyle = "#00cc33";
         context.fillText(string, x, y);
-      }, 70)
-    }
+      }, 70);
+    };
   </script>
 </body>
 
