@@ -17,10 +17,6 @@
 </style>
 
 <body>
-  <audio autoplay loop>
-    <source src="./src/soundtrack.mp3" type="audio/mpeg">
-  </audio>
-
   <canvas id="myCanvas" style="background: #000000"></canvas>
 
   <script>
@@ -54,7 +50,7 @@
         var index = Math.floor(Math.random() * string.length);
         var x = i * space;
         var y = drops[i] * space;
-        render(string[index], x, y)
+        renderFillText(string[index], x, y)
         drops[i]++;
         if (y >= canvas.height && Math.random() > 0.99) {
           drops[i] = 0;
@@ -62,7 +58,7 @@
       }
     }, 20);
 
-    function render(string, x, y) {
+    function renderFillText(string, x, y) {
       context.fillStyle = "#ffffffa0";
       context.fillText(string, x, y);
       setTimeout(function () {
@@ -70,7 +66,6 @@
         context.fillText(string, x, y);
       }, 20)
     }
-
   </script>
 </body>
 
