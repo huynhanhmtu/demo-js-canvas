@@ -89,7 +89,7 @@ animate();
 canvas2.addEventListener('mousemove', function (event) {
   mouse.x = event.x;
   mouse.y = event.y;
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < 5; i++) {
     practicleArray.push(new Practicle);
   };
 });
